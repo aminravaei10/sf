@@ -11,7 +11,7 @@ import {
   // UseInterceptors,
   ValidationPipe,
 } from '@nestjs/common';
-import { CreateCatDto } from './create-cat.dto';
+import { CreateCatDto } from './interfaces/create-cat.dto';
 import { RolesGuard } from 'src/auth/roles.guard';
 import { Roles } from 'src/auth/roles.decorator';
 // import { LoggingInterceptor } from 'src/interceptors/logging.interceptor';

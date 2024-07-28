@@ -1,16 +1,16 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { CatsModule } from './cats/cats.module';
 import { CatsController } from './cats/cats.controller';
-import { logger } from './logger.middleware';
+import { logger } from './interceptors/logger.middleware';
 import { APP_FILTER, APP_INTERCEPTOR } from '@nestjs/core';
 import { LoggingInterceptor } from './interceptors/logging.interceptor';
-import { HttpExceptionFilter } from './exeptionFilter/http-exeption.filter';
+import { AllExceptionsFilter } from './exeptionFilter/allExeption.filter';
 
 @Module({
   providers: [
     {
       provide: APP_FILTER,
-      useClass: HttpExceptionFilter,
+      useClass: AllExceptionsFilter,
     },
     {
       provide: APP_INTERCEPTOR,
